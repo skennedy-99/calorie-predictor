@@ -1,4 +1,3 @@
-
 __pycache__/
 *.pyc
 *.pyo
@@ -9,13 +8,8 @@ venv/
 *.egg-info/
 dist/
 build/
-
 .idea/
 .vscode/
-
-
 .DS_Store
 Thumbs.db
-
 .ipynb_checkpoints/
-

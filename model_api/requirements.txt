@@ -5,6 +5,4 @@ joblib
 fastapi
 pydantic
 uvicorn
-requests
 docker
-streamlit
