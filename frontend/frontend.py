@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "http://backend-container:8000/"
+API_URL = "http://backend-container:8000/predict"
 
 
 st.set_page_config(page_title="Calorie Burn Predictor", layout="centered")
@@ -35,12 +35,12 @@ with col1:
         step=0.5,
         format="%.1f"
     )
-    weight = st.numer_input(
+    weight = st.number_input(
         "Weight (kgs)",
-        min_value=36,
-        max_value=132,
-        value=70,
-        step=1,
+        min_value=36.0,
+        max_value=132.0,
+        value=70.0,
+        step=1.0,
         format="%.1f"
     )
 
@@ -63,10 +63,10 @@ with col2:
     )
     Duration = st.number_input(
         "Workout Duration (mins)", 
-        min_value = 1,
-        max_value = 30,
-        value = 15,
-        step=1,
+        min_value = 1.0,
+        max_value = 30.0,
+        value = 15.0,
+        step=1.0,
         format="%.1f"
     )
 

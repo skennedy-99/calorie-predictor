@@ -24,7 +24,9 @@ class ScoringItem(BaseModel):
 
 @app.post('/predict')
 async def scoring_endpoint(item: ScoringItem):
-    df = pd.DataFrame([item.dict().values()], columns=item.dict().keys())
+    input_data = item.dict()
+    df = pd.DataFrame([input_data])
+    df = df[feature_order]
     scaled_df = scaler.transform(df)
     yhat = model.predict(scaled_df)[0]
     return {"prediction": float(yhat)}
