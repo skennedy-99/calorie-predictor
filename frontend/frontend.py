@@ -35,6 +35,14 @@ with col1:
         step=0.5,
         format="%.1f"
     )
+    weight = st.numer_input(
+        "Weight (kgs)",
+        min_value=36,
+        max_value=132,
+        value=70,
+        step=1,
+        format="%.1f"
+    )
 
 with col2:
     heart_rate = st.number_input(
@@ -53,17 +61,27 @@ with col2:
         step=0.1,
         format="%.1f"
     )
+    Duration = st.number_input(
+        "Workout Duration (mins)", 
+        min_value = 1,
+        max_value = 30,
+        value = 15,
+        step=1,
+        format="%.1f"
+    )
 
+BMI = weight / ((height/100) **2)
 
 st.divider() 
 
 if st.button("Predict Calories Burnt", type="primary"):
     payload = {
-        "Gender": gender,
-        "Age": float(age),
-        "Height": float(height),
         "Heart_Rate": float(heart_rate),
-        "Body_Temp": float(body_temp)
+        "Body_Temp": float(body_temp),
+        "Duration": float(Duration),
+        "BMI": float(BMI),
+        "Gender": gender,
+        "Age": float(age)
     }
 
     with st.spinner('Sending data to prediction API...'):
