@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "https://calorie-predictor-gzxl.onrender.com/"
+API_URL = "http://backend-container:8000/"
 
 
 st.set_page_config(page_title="Calorie Burn Predictor", layout="centered")

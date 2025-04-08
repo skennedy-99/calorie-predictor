@@ -3,6 +3,7 @@ import joblib
 from pydantic import BaseModel
 import numpy as np
 import pandas as pd
+import uvicorn
 
 
 app = FastAPI()
@@ -27,3 +28,5 @@ async def scoring_endpoint(item: ScoringItem):
     return {"prediction": float(yhat)}
 
 
+if __name__ == '__main__':
+    uvicorn.run(app, host="127.0.0.1", port=8000)
